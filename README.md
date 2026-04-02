@@ -11,7 +11,7 @@ This repository is an official implementation of the paper [ GS^2: Graph-based S
 
 <br/>
 <div align="center">
-  <img src="./framework.png" width="90%"/>
+  <img src="./pipeline.pdf" width="90%"/>
 
   Fig. 1: Overall architecture of the proposed GS^2 model.
 </div>
