@@ -29,8 +29,12 @@ You can download our provided checkpoints from [here](). These results are repro
 ## Citing GS^2
 If you find GS^2 useful in your research, please consider citing:
 ```bibtex
-@ARTICLE{},
-  doi={}}
+@article{yang2026gs2graphbasedspatialdistribution,
+   title={GS^2: Graph-based Spatial Distribution Optimization for Compact 3D Gaussian Splatting}, 
+      author={Xianben Yang, Tao Wang , Yuxuan Li, Yi Jin and Haibin Ling},
+      year={2026},
+      eprint={2604.01884}
+}
 ```
 
 
