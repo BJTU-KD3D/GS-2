@@ -16,13 +16,23 @@ This repository is an official implementation of the paper [ GS^2: Graph-based S
   Fig. 1: Overall architecture of the proposed GS^2 model.
 </div>
 
-## Reproducing Results
-Due to the randomness of the densification process and random initialization, the metrics may be unstable in some scenes, especially PSNR.
 
+## Getting Started 
 
-### Checkpoints and Results
-You can download our provided checkpoints from [here](). These results are reproduced with a lower error tolerance bound to keep aligned with this repo, which is different from what we use in the paper. This could lead to higher metrics but worse visualization.
+Our code is based on the excellent official repo for [3D Gaussian Splatting](https://github.com/graphdeco-inria/gaussian-splatting/tree/main). 
 
+## Training
+
+Modify the paths to dataset and output folder in the ```run.sh``` script. 
+
+```shell
+
+cd gaussian-splatting
+bash run.sh
+```
+
+## Pre-trained Models
+Trained models are now available [here](https://drive.google.com/file/d/1UWPlaA02wXMosi5o1cHjHDZ-8huE34WP/view?usp=drive_link). You can download these models and provide the paths in the render and evaluation codes to get the metrics. The metrics might not exactly match those in the paper since these are re-runs with different seeds.
 
 
 
@@ -37,6 +47,9 @@ If you find GS^2 useful in your research, please consider citing:
 }
 ```
 
+
+## Acknowledgement
+This code is developed on [gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting). 
 
 ## License
 
