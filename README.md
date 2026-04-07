@@ -1,7 +1,7 @@
 # GS^2: Graph-based Spatial Distribution Optimization for Compact 3D Gaussian Splatting
 
 
-This repository is an official implementation of the paper [ GS^2: Graph-based Spatial Distribution Optimization for Compact 3D Gaussian Splatting]().
+This repository is an official implementation of the paper [ GS^2: Graph-based Spatial Distribution Optimization for Compact 3D Gaussian Splatting](http://arxiv.org/abs/2604.01884).
 
 
 
@@ -16,6 +16,88 @@ This repository is an official implementation of the paper [ GS^2: Graph-based S
   Fig. 1: Overall architecture of the proposed GS^2 model.
 </div>
 
+
+## Dataset
+
+### Mip-NeRF 360 Dataset
+
+Please download the Mip-NeRF 360 dataset processed by colmap from [Mip-NeRF 360](https://jonbarron.info/mipnerf360/):
+
+```
+360_v2
+    |---bicycle
+    |   |---images
+    |   |   |---<image 0>
+    |   |   |---<image 1>
+    |   |   |---...
+    |   |---images_2
+    |   |---images_4
+    |   |---images_8
+    |   |---sparse
+    |       |---0
+    |           |---cameras.bin
+    |           |---images.bin
+    |           |---points3D.bin
+    |---bonsai
+    |---...
+```
+
+### Tanks and Temples Dataset
+
+#### Option 1
+
+We thank [Pixel-GS](https://github.com/zhengzhang01/Pixel-GS) for constructing the processed Tanks and Temples dataset, which is available for direct download via [OneDrive](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/u3009782_connect_hku_hk/EehzMcKeoclAnVdgPyyBxNwB24ve5bk3ZSct38AUWPbprw?e=uWEc5a). Please agree the official license before download it.
+
+#### Option 2 
+
+Tanks and Temples is divided into three parts, comprising a total of 21 scenes: Intermediate ('Family', 'Francis', 'Horse', 'Lighthouse', 'M60', 'Panther', 'Playground', 'Train'), Advanced ('Auditorium', 'Ballroom', 'Courtroom', 'Museum', 'Palace', 'Temple'), and Training Data ('Barn', 'Caterpillar', 'Church', 'Courthouse', 'Ignatius', 'Meetingroom', 'Truck').
+
+Please download the "image set" of all scenes from the Tanks and Temples dataset from [Tanks and Temples](https://www.tanksandtemples.org/download/). After unzipping, rename the image folder directories of all scenes to "input". The organized folder structure is as follows:
+
+```
+---tanks_and_temples
+    |---Auditorium
+    |   |---input
+    |   |   |---<image 0>
+    |   |   |---<image 1>
+    |   |   |---...
+    |---Ballroom
+    |---...
+```
+
+After configuring libraries such as colmap according to the method in the original [3DGS code](https://github.com/graphdeco-inria/gaussian-splatting?tab=readme-ov-file#processing-your-own-scenes), use the following command to generate camera poses for all scenes in Tanks and Temples:
+
+```
+python ./prepose.py
+```
+
+Finally, the current directory should contain the following folders:
+
+```
+---tanks_and_temples
+    |---Auditorium
+    |   |---images
+    |   |   |---<image 0>
+    |   |   |---<image 1>
+    |   |   |---...
+    |   |---images_2
+    |   |---images_4
+    |   |---images_8
+    |   |---sparse
+    |       |---0
+    |           |---cameras.bin
+    |           |---images.bin
+    |           |---points3D.bin
+    |---Ballroom
+    |---...
+```
+
+Then, you need to rename the folder 'images_2' to 'images', since the resolution we are working with is close to 980x545.
+You can also avoid renaming by simply changing `factors = [1] * len(scenes)` to `factors = [2] * len(scenes)` in `./script/tanks_and_temples.py`. This modification will instruct the code to reshape the images upon loading during training.
+
+### Your Own Dataset
+
+Our method requires the same data format as 3DGS. For your own data, you can use the processing method found in the ["Processing your own Scenes"](https://github.com/graphdeco-inria/gaussian-splatting?tab=readme-ov-file#processing-your-own-scenes) section of the original 3DGS code.
 
 ## Getting Started 
 
