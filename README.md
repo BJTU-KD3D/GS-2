@@ -105,7 +105,7 @@ Our code is based on the excellent official repo for [3D Gaussian Splatting](htt
 
 ## Training
 
-Modify the paths to dataset and output folder in the ```run.sh``` script. In practice, we found that increasing the learning rate after pruning can partially reproduce the effect of the third stage. We regard this as a lightweight approximation.
+Modify the paths to dataset and output folder in the ```run.sh``` script. In practice, increasing the learning rate after pruning (e.g., setting `position_lr_init = 5e-6`) can partially reproduce the effect of the third stage, serving as a lightweight approximation.
 
 ```shell
 
