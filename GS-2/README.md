@@ -131,8 +131,7 @@ If you find GS^2 useful in your research, please consider citing:
 
 
 ## Acknowledgement
-This code is developed on [gaussian-splatting](https://github.com/graphdeco-inria/gaussian-splatting). 
-
+This project is built upon [3D-GS](https://github.com/graphdeco-inria/gaussian-splatting) and [LightGaussian](https://github.com/VITA-Group/LightGaussian). We thank all authors for their great work!
 ## License
 
 This repository is released under the Apache 2.0 license. Please see the [LICENSE](./LICENSE) file for more information.
